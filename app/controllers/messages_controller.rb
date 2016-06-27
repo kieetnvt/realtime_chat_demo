@@ -10,7 +10,8 @@ class MessagesController < ApplicationController
       ActionCable.server.broadcast 'messages',
         timestamp: message.timestamp,
         user: message.user.name,
-        message: message.body
+        message: message.body,
+        chat_room_id: message.chat_room.id
       head :ok
     else
       redirect_to chat_rooms_path

@@ -5,8 +5,7 @@
 //
 App.messages = App.cable.subscriptions.create('MessagesChannel', {
   received: function(data){
-    console.log("app cable subscriptions create")
-    return $('.messages').append(this.renderMessage(data));
+    return $(".messages[data-chat-room-id="+data.chat_room_id.toString()+"]").append(this.renderMessage(data));
   },
 
   renderMessage: function(data){
