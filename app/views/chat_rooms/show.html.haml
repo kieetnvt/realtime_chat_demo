@@ -1,0 +1,11 @@
+%h1
+  = @chat_room.topic
+
+.messages{'data-chat-room-id': @chat_room.id}
+  = render @chat_room.messages
+
+= form_for @message, remote: true, authenticity_token: true do |f|
+  = f.hidden_field 'chat_room_id', value: @chat_room.id
+  = f.label :body
+  = f.text_area :body
+  = f.submit "Post"
