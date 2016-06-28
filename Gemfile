@@ -50,6 +50,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Use Haml
 gem 'haml'
+gem "haml-rails", "~> 0.9"
 
 # Use Devise
 gem 'devise'

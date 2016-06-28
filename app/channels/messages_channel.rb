@@ -7,6 +7,12 @@ class MessagesChannel < ApplicationCable::Channel
   end
 
   # custom method
-  def speak
+  # broadcast message to room 1
+  def speak(data)
+    ActionCable.server.broadcast 'messages',
+      timestamp: Time.now,
+      user: "Admin",
+      message: data['message'],
+      chat_room_id: 1
   end
 end

@@ -1,0 +1,22 @@
+%nav.navbar.navbar-default.navbar-static-top{:role => "navigation"}
+  .navbar-default.sidebar{:role => "navigation"}
+    .sidebar-nav.navbar-collapse
+      %ul#side-menu.nav
+        %li.sidebar-search
+          .input-group.custom-search-form
+            %input.form-control{:placeholder => "Search...", :type => "text"}
+            %span.input-group-btn
+              %button.btn.btn-default{:type => "button"}
+                %i.fa.fa-search
+        %li
+          %a{:href => "index.html"}
+            %i.fa.fa-dashboard.fa-fw
+            Dashboard
+        %li
+          %a{:href => "tables.html"}
+            %i.fa.fa-table.fa-fw
+            Tables
+        %li
+          %a{:href => "forms.html"}
+            %i.fa.fa-edit.fa-fw
+            Forms
