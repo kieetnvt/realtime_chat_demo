@@ -1,4 +1,7 @@
-%h1
-  Let's Chat
-= link_to "New Chat Room", new_chat_room_path
-= render @chat_rooms
+.row
+  .col-lg-12
+    %h1.page-header Dashboard
+.row
+  = render @chat_rooms
+.row
+  = link_to "Create New Room!", new_chat_room_path, class: "btn btn-large btn-danger"

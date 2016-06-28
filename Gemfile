@@ -54,3 +54,6 @@ gem "haml-rails", "~> 0.9"
 
 # Use Devise
 gem 'devise'
+
+# Time
+gem 'local_time'
