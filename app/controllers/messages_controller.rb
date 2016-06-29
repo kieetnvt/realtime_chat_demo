@@ -3,6 +3,7 @@ class MessagesController < ApplicationController
     message = current_user.messages.new(message_params)
     if message.save
       ActionCable.server.broadcast 'messages',
+        type: 'user_message',
         timestamp: message.timestamp,
         user: message.user.name,
         message: message.body,

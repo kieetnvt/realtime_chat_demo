@@ -1,19 +1,22 @@
 App.messages = App.cable.subscriptions.create('MessagesChannel',
   connected: ->
     console.log("connected")
+    user = $('#current_user_name').val()
+    chat_room_id = $('#current_chat_room_id').val()
+    @perform 'room_joined', { user: user, chat_room_id: chat_room_id }
 
   disconnected: ->
     console.log("disconnected")
+    console.log($("#current_user_name").val())
+    console.log($("#current_chat_room_id").val())
 
   received: (data) ->
-    $('.messages[data-chat-room-id=' + data.chat_room_id.toString() + ']')
-      .append @messageTemplate(data)
-
-  renderMessage: (data) ->
-    '<div class=\'message\'>' +
-    'At ' + data.timestamp + ' ' +
-    data.user + ' Says: ' + data.message +
-    '</div>'
+    if data.type == 'notify_joined'
+      $('.messages[data-chat-room-id=' + data.chat_room_id.toString() + ']')
+        .append '<p>' + data.user + ' joined this room' + '</p>'
+    if data.type == 'user_message'
+      $('.messages[data-chat-room-id=' + data.chat_room_id.toString() + ']')
+        .append @messageTemplate(data)
 
   speak: (message)->
     @perform 'speak', message: message

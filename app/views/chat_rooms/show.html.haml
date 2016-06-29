@@ -1,4 +1,6 @@
 .row.col-md-6
+  = hidden_field_tag 'current_user_name', current_user.name
+  = hidden_field_tag 'current_chat_room_id', @chat_room.id
   .chat-panel.panel.panel-default
     .panel-heading
       %i.fa.fa-comments.fa-fw
