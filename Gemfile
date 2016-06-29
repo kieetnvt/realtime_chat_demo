@@ -57,3 +57,6 @@ gem 'devise'
 
 # Time
 gem 'local_time'
+
+# Profiler
+gem 'rack-mini-profiler'

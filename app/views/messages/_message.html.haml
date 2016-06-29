@@ -1,10 +1,7 @@
 %li.left.clearfix
-  %span.chat-img.pull-left
-    %img.img-circle{:alt => "User Avatar", :src => "http://placehold.it/50/55C1E7/fff"}
-  .chat-body.clearfix
-    .header
-      %strong.primary-font= message.user.name
-      %small.pull-right.text-muted
-        %i.fa.fa-clock-o.fa-fw
-        = local_time_ago(message.timestamp)
-    %p= message.body
+  .header
+    %span.primary-font= message.user.name
+    %small.pull-right.text-muted
+      %i.fa.fa-clock-o.fa-fw
+      = local_time_ago(message.timestamp)
+    .lead= message.body

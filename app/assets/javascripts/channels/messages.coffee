@@ -20,22 +20,17 @@ App.messages = App.cable.subscriptions.create('MessagesChannel',
 
   messageTemplate: (data) ->
     '<li class=\'left clearfix\'>' +
-      '<span class=\'chat-img pull-left\'>' +
-        '<img src=\'http://placehold.it/50/55C1E7/fff\' alt=\'User Avatar\' class=\'img-circle\'>' +
-      '</span>' +
-      '<div class=\'chat-body clearfix\'>' +
-        '<div class=\'header\'>' +
-          '<strong class=\'primary-font\'>' +
-            data.user +
-          '</strong>' +
-          '<small class=\'pull-right text-muted\'>' +
-              '<i class=\'fa fa-clock-o fa-fw\'></i>' +
-              data.timestamp +
-          '</small>' +
-        '</div>' +
-        '<p>' +
+      '<div class=\'header\'>' +
+        '<span class=\'primary-font\'>' +
+          data.user +
+        '</span>' +
+        '<small class=\'pull-right text-muted\'>' +
+            '<i class=\'fa fa-clock-o fa-fw\'></i>' +
+            data.timestamp +
+        '</small>' +
+        '<div class=\'lead\'>' +
           data.message +
-        '</p>' +
+        '</div>' +
       '</div>' +
     '</li>'
 )

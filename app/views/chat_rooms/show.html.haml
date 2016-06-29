@@ -1,40 +1,12 @@
-%h1
-  = @chat_room.topic
-.chat-panel.panel.panel-default
-  .panel-heading
-    %i.fa.fa-comments.fa-fw
-    Chat
-    .btn-group.pull-right
-      %button.btn.btn-default.btn-xs.dropdown-toggle{"data-toggle" => "dropdown", :type => "button"}
-        %i.fa.fa-chevron-down
-      %ul.dropdown-menu.slidedown
-        %li
-          %a{:href => "#"}
-            %i.fa.fa-refresh.fa-fw
-            Refresh
-        %li
-          %a{:href => "#"}
-            %i.fa.fa-check-circle.fa-fw
-            Available
-        %li
-          %a{:href => "#"}
-            %i.fa.fa-times.fa-fw
-            Busy
-        %li
-          %a{:href => "#"}
-            %i.fa.fa-clock-o.fa-fw
-            Away
-        %li.divider
-        %li
-          %a{:href => "#"}
-            %i.fa.fa-sign-out.fa-fw
-            Sign Out
-  .panel-body
-    %ul.chat.messages{'data-chat-room-id' => @chat_room.id}
-      = render @chat_room.messages
-  .panel-footer.input-group{'style' => 'width: 100%;'}
-    = form_for @message, remote: true, authenticity_token: true do |f|
-      = f.hidden_field 'chat_room_id', value: @chat_room.id
-      = f.text_field :body, id: 'btn-input', class: 'form-control input-sm', placeholder: 'Type your message...'
-      %span.input-group-btn
-        = f.button "Send", id: 'btn-chat', class: 'btn btn-warning btn-sm'
+.row.col-md-6
+  .chat-panel.panel.panel-default
+    .panel-heading
+      %i.fa.fa-comments.fa-fw
+      = @chat_room.topic.upcase
+    .panel-body
+      %ul.chat.messages{'data-chat-room-id' => @chat_room.id}
+        = render @chat_room.messages
+    .panel-footer
+      = form_for @message, remote: true, authenticity_token: true, class: "form-inline" do |f|
+        = f.hidden_field 'chat_room_id', value: @chat_room.id
+        = f.text_field :body, id: 'chat-enter', class: 'form-control input-sm', placeholder: 'Type your message...'
